@@ -1,0 +1,32 @@
+<!--
+Muy Importante!!! Debemos acordarnos que cuando usamos la directiva "ngModel" debemos importar el modulo "FormsModule" export const functionName = (params) => { "app.module.ts" }; -->
+<!--
+<h2>My Heroes</h2> -->
+
+<!-- Ejemplo : En este ejemplo vemos tres estructuras
+
+1. Tenemos *ngFor que nos mostrara todos los app-heroes
+2. Tenemos un evento "onClick" que en angular es "(click)" , en el que cuando picnhamos se convierte en el superheroe seleccionado
+3. Podemos ver que asociamos una clase -->
+<!-- <ul class="heroes">
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+
+<app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+<div>
+    <label>Hero Name:</label>
+    <input #heroName/>
+    <button (click)="add(heroName.value); heroName.value='' ">Add Hero</button>
+
+</div>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero" (click)="delete(hero)">X</button>
+    </li>
+
+</ul>
